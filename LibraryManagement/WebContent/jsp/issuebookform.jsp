@@ -54,9 +54,10 @@
     <label for="mobile1">Student Mobile</label>
     <input type="number" class="form-control" name="studentmobile" id="mobile1" placeholder="Student Mobile"/>
   </div>
-  <button type="submit" class="btn btn-primary col-md-offset-4 col-md-4">Issue Book</button>
+  <button type="submit" class="btn btn-primary col-md-offset-4 col-md-4">Issue Book</button></br>
 </form>
-<div class="h4"><%if((String)request.getAttribute("msg")!=null)%><%=(String)request.getAttribute("msg") %></div>
+<div class="col-md-12"><%if((String)request.getAttribute("msg")!=null)%><%=(String)request.getAttribute("msg") %></div>
 </div>
+
 </div>
 </body>

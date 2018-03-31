@@ -1,9 +1,15 @@
 package com.LibraryManagement.Deo;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
+import com.LibraryManagement.Bean.StudentBean;
 import com.LibraryManagement.Bean.UserBean;
 
 public class UserDeo {
@@ -66,6 +72,46 @@ public class UserDeo {
 
 	return bean;
 	   
-	   }   
+	   }
+	public static List<StudentBean> ViewData(String data) {
+		List<StudentBean> ls=new ArrayList<StudentBean>();
+		 String sid=getCallId(data);
+		try {
+			Connection con=ConnectionManager.getConnection();
+			String sql="select issuebook.SNAME,ebook.NAME,issuebook.ISSUEDDATE,issuebook.RETURNSTSTUS FROM ebook INNER JOIN issuebook ON issuebook.CALLNO=? and ebook.CALLNO=?";
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setString(1,sid);
+			ps.setString(2,sid);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				StudentBean bean=new StudentBean();
+				bean.setName(rs.getString(1));
+				bean.setE_name(rs.getString(2));
+				bean.setIssue(rs.getString(3));
+				bean.setReturnStatus(rs.getString(4));
+				ls.add(bean);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return ls;
+	}
+	private static String getCallId(String data) {
+		String s=null;
+		try {
+		Connection con=ConnectionManager.getConnection();
+		String sql="select CALLNO from issuebook where SID=?";
+		PreparedStatement ps=con.prepareStatement(sql);
+		ps.setString(1, data);
+		ResultSet rs=ps.executeQuery();
+		if(rs.next()) {
+			 s=rs.getString(1);
+			System.out.println(s);
+			
+		}
+		}catch(Exception e) {System.out.print(e);}
+		return s;
+	}   
 
 }

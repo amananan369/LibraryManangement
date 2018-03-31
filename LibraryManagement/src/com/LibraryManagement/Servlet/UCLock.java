@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.LibraryManagement.Bean.LibrarianBean;
-import com.LibraryManagement.Bean.UserBean;
 
 /**
  * Servlet implementation class UCLock

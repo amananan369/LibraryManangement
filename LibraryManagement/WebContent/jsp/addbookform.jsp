@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<SCRIPT LANGUAGE="JavaScript">
+<script language="JavaScript">
  
     function ieClicked() {
         if (document.all) {

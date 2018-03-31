@@ -30,7 +30,7 @@ body, html {
 
 .bg {
     /* The image used */
-    background-image: url("${pageContext.request.contextPath}/jsp/img/admin.png");
+    background-image: url("${pageContext.request.contextPath}/jsp/img/admin.jpg");
 
     /* Full height */
     height: 100%; 

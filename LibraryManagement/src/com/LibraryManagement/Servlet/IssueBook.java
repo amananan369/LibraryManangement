@@ -36,7 +36,7 @@ public class IssueBook extends HttpServlet {
 			request.getRequestDispatcher("jsp/issuebookform.jsp").forward(request, response);
 			
 		}else{
-			request.setAttribute("msg","<h3>Sorry, unable to issue book.</h3><p>We may have sortage of books. Kindly visit later.</p>");
+			request.setAttribute("msg","<h5>Sorry, unable to issue book.</h5>We may have sortage of books. Kindly visit later.");
 			request.getRequestDispatcher("jsp/issuebookform.jsp").forward(request, response);
 		}
 		
